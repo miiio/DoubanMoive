@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "cn.boji9.doubanmoive"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildscript{
+        repositories {
+            maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        }
+    }
+
+    allprojects {
+        repositories {
+            maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        }
+    }
+
+}
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.android.support:cardview-v7:24.2.0'
+    compile 'com.wenwenwen888:searchbox:1.0.0'
+    compile 'com.zhy:base-rvadapter:3.0.3'
+    compile 'org.jsoup:jsoup:1.9.2'
+    compile 'com.zzhoujay.richtext:richtext:2.5.4'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+    compile 'com.ycjiang:imgepreviewlibrary:1.0.4'
+    compile 'cn.jzvd:jiaozivideoplayer:6.0.0'
+    compile 'com.aitangba:swipeback:1.0.2'
+    compile 'com.google.code.gson:gson:2.8.1'
+    testCompile 'junit:junit:4.12'
+}
