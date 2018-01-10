@@ -191,11 +191,19 @@ public class MovieDetailActivity extends SwipeBackActivity implements IMovieDeta
                 }
                 ImageView iv = (ImageView)holder.getView(R.id.iv_photoandvideo);
                 if(position<videoNum){
-                    Glide.with(MovieDetailActivity.this).load(mMovieDetail.getTrailers().get(position).getSmall())
-                            .into(iv);
+                    if(position<mMovieDetail.getTrailers().size()) {
+                        Glide.with(MovieDetailActivity.this).load(mMovieDetail.getTrailers().get(position).getSmall())
+                                .into(iv);
+                    }else{
+                        Glide.with(MovieDetailActivity.this).load("").into(iv);
+                    }
                 }else{
-                    Glide.with(MovieDetailActivity.this).load(mMovieDetail.getPhotos().get(position).getCover())
-                            .into(iv);
+                    if(position<mMovieDetail.getPhotos().size()) {
+                        Glide.with(MovieDetailActivity.this).load(mMovieDetail.getPhotos().get(position).getCover())
+                                .into(iv);
+                    }else{
+                        Glide.with(MovieDetailActivity.this).load("").into(iv);
+                    }
                 }
             }
         };
